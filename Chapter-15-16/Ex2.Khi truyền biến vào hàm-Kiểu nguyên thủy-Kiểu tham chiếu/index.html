@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = { name: "Kha" }; // ✅ Khai báo trước
+
+        function update(user) {
+        user.name = "Đã đổi tên";
+        }
+
+        update(person); // truyền vào sau khi đã có biến
+        console.log(person.name); // 👉 "Đã đổi tên"
+
+    </script>
+</body>
+</html>

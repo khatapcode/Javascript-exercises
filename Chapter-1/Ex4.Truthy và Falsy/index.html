@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(!!0);          // false → số 0 là falsy
+        console.log(!!1);          // true  → số khác 0 là truthy
+        console.log(!!-123);       // true  → số âm vẫn truthy
+        console.log(!!"");         // false → chuỗi rỗng là falsy
+        console.log(!!"hello");    // true  → chuỗi có nội dung là truthy
+        console.log(!!null);       // false → null là falsy
+        console.log(!!undefined);  // false → undefined là falsy
+        console.log(!!NaN);        // false → NaN là falsy
+        console.log(!!false);      // false → false là falsy
+        console.log(!!true);       // true  → true là truthy
+        console.log(!![]);         // true  → mảng rỗng vẫn truthy
+        console.log(!!{});         // true  → object rỗng vẫn truthy
+        console.log(!!function(){}); // true → hàm luôn truthy
+
+        const username = "kha";
+        const isValid = !!username; // true, vì có tên
+
+        if (!!username) {
+        console.log("Người dùng đã nhập tên");
+        }
+
+
+        // Dùng !!value để ép kiểu về boolean trong điều kiện kiểm tra.
+
+        // Rất hữu ích khi validate dữ liệu, xử lý form, hoặc viết điều kiện rõ ràng.
+
+    </script>
+</body>
+</html>

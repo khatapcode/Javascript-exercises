@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Type Coercion JavaScript tự động chuyển đổi kiểu dữ liệu (như từ số sang chuỗi, chuỗi sang boolean, v.v.) 
+        // khi thực hiện các thao tác (so sánh, cộng, trừ, v.v.) giữa các kiểu khác nhau.
+
+        // Hai loại so sánh:
+        //     ==: So sánh lỏng lẻo, ép kiểu trước khi so sánh.
+        //     ===: So sánh nghiêm ngặt, không ép kiểu, kiểm tra cả giá trị và kiểu.
+
+
+        console.log(1 == '1');     // true   == ép kiểu: Chuỗi '1' được chuyển thành số 1.
+        console.log(1 === '1');    // false  === không ép kiểu, kiểm tra cả giá trị và kiểu.
+        console.log('' == false);  // true   == ép kiểu: Chuỗi rỗng '' thành 0, false thành 0.
+        console.log(null == undefined); // true  == có quy tắc đặc biệt: null và undefined được coi là tương đương
+        console.log(null === undefined); // false === kiểm tra kiểu: null (object) khác kiểu với undefined
+
+
+    </script>
+</body>
+</html>

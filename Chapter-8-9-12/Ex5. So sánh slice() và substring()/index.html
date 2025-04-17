@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let text = "Hello World";
+
+        console.log(text.slice(0, 5));      // "Hello" Lấy từ chỉ số 0 đến trước chỉ số 5
+        console.log(text.substring(0, 5));  // "Hello" Lấy từ chỉ số 0 đến trước chỉ số 5
+
+        console.log(text.slice(5, 0));      // "" start (5) lớn hơn end (0).  slice không đảo giá trị, thấy không hợp lệ → Trả chuỗi rỗng ""
+        console.log(text.substring(5, 0));  // "Hello" substring đảo giá trị, hiểu là substring(0, 5).
+    </script>
+</body>
+</html>

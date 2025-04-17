@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            // undefined:
+            // Biến không được gán giá trị hoặc không được khai báo rõ ràng.
+            // Ví dụ: let a; → a là undefined.
+            // null:
+            // Có chủ đích gán giá trị "rỗng" hoặc "không có".
+            // Ví dụ: let b = null; → Biến có giá trị, nhưng là rỗng.
+            // So sánh:
+            // ==: Ép kiểu, null và undefined được coi là tương đương.
+            // ===: Không ép kiểu, kiểm tra cả giá trị và kiểu → Khác nhau.
+
+
+        let a;
+        let b = null;
+
+        console.log(typeof a);  // undefined
+        console.log(typeof b);  // object
+
+        console.log(a == b);    // true  null và undefined được coi là tương đương.
+        console.log(a === b);   // false  a là undefined (kiểu undefined), b là null (kiểu object).
+
+        
+
+    </script>
+</body>
+</html>

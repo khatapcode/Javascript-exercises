@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Có ready</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+  <div id="box" style="width:100px;height:100px;background:red;"></div>
+
+
+  <script>
+
+    $("#box").hide(); // ❌ Có thể KHÔNG hoạt động
+
+
+    $(document).ready(function () {
+      $("#box").hide(); // ✅ Chắc chắn hoạt động
+    });
+
+    // Vị trí đặt javascript
+    // Sau phần tử (cuối <body>) Lỗi 0% vì DOM đã load xong rồi
+    // Trước phần tử (trong <head>) Lỗi 100% vì DOM chưa load xong
+    // Một số trường hợp "ở giữa" Có thể lỗi Khi code viết giữa lúc DOM chưa load xong, thì có thể không hoạt động
+
+
+    // Có thể rút gọn $(document).ready() thành $(...)
+    //     $(document).ready(function () {
+    //     $("#box").hide();
+    //   });
+
+    //   $(function () {
+    //     $("#box").hide();
+    //   });
+  </script>
+</body>
+</html>

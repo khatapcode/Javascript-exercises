@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        this.firstName = "Minh"
+        this.lastName = "Thu"
+
+        const teacher = {
+            firstName: "Minh",
+            lastName: "Thảo",
+            getFullName() {
+                return `${this.firstName} ${this.lastName}`
+            }
+        }
+
+        // Ex 1:
+        console.log(teacher.getFullName()) // "Minh Thảo"
+        // Khi gọi như này this sẽ trỏ về teacher
+
+        // Ex 2:
+        const getTeacherName = teacher.getFullName
+
+        console.log(getTeacherName()) // "Minh Thu"
+        // Lúc này gọi hàm bình thường kh thông qua teacher nên this trỏ về window
+
+        // Ex 3:
+        const getTeacherName2 = teacher.getFullName.bind(teacher)
+
+        console.log(getTeacherName2()) // "Minh Thảo"
+        //Dùng .bind(teacher) sẽ ràng buộc this trong hàm luôn luôn là teacher
+
+        //.bind(teacher) là cách giữ this không bị mất khi gán method ra ngoài.
+        
+    </script>
+</body>
+</html>

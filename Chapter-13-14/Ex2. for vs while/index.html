@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Vòng lặp `for`:
+        for (let i = 0; i < 5; i++) {
+        console.log("for loop:", i);
+        }
+        // for loop: 0
+        // for loop: 1
+        // for loop: 2
+        // for loop: 3
+        // for loop: 4
+
+
+        // Vòng lặp `while`:
+        let j = 0;
+        while (j < 5) {
+        console.log("while loop:", j);
+        j++;
+        }
+        // while loop: 0
+        // while loop: 1
+        // while loop: 2
+        // while loop: 3
+        // while loop: 4
+
+
+        // for: dùng khi biết trước số lần lặp.
+
+        // while: dùng khi chưa biết số lần, lặp đến khi điều kiện không còn đúng.
+
+        // ví dụ về white khi chưa biết số lần:
+
+        let userInput; //không gán giá trị ban đầu cho userInput 
+                       // vì giá trị của nó sẽ được cập nhật từ đầu vào của người dùng thông qua prompt().
+
+        while (userInput !== "q") {
+        userInput = prompt("Nhấn một phím (nhấn 'q' để thoát):");   // prompt hiển thị một hộp thoại yêu cầu người dùng nhập dữ liệu.
+        console.log("Bạn đã nhấn: " + userInput);
+        }
+
+        console.log("Chương trình kết thúc.");
+    </script>
+</body>
+</html>

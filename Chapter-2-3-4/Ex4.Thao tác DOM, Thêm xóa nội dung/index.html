@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <ul id="list">
+          <li>Item 1</li>
+        </ul>
+        <button id="addItem">Thêm item</button>
+        <button id="clearItems">Xoá tất cả</button>
+        
+      
+      <script>
+        let count = 2;
+
+            document.getElementById("addItem").addEventListener("click", function () { //Gắn sự kiện click cho nút có id="addItem".
+              const li = document.createElement("li"); //Tạo ra một phần tử <li> mới
+              li.textContent = `Item ${count++}`; //Gán nội dung của <li> là "Item 2", "Item 3",... và tăng biến count
+
+              document.getElementById("list").appendChild(li); //Thêm phần tử <li> mới vào cuối danh sách <ul>.
+
+            });
+
+            document.getElementById("clearItems").addEventListener("click", function () { //Gắn sự kiện click cho nút id="clearItems".
+              document.getElementById("list").innerHTML = ""; //Xoá sạch nội dung trong thẻ <ul id="list">, tức là xoá hết các <li>
+            });
+
+        
+              //createElement	Tạo thẻ HTML mới bằng JS
+              //textContent	Gán nội dung văn bản
+              //appendChild	Thêm phần tử con vào phần tử cha
+              //innerHTML = ""	Xoá hết các phần tử con
+      </script>
+      
+</body>
+</html>

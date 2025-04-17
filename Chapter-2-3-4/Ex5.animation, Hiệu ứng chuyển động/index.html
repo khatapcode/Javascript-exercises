@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="animateBtn">Animate Box</button>
+    <button id="stopBtn">Dừng animation</button>
+    <div id="animateBox" style="width:100px;height:100px;background:blue;position:relative;"></div>
+
+
+    <script>
+      //"Animation" là quá trình làm cho vật gì đó chuyển động
+
+        let animation; // Khai báo let animation ở ngoài (phạm vi toàn cục) để cả animateBtn và stopBtn đều có thể truy cập và sử dụng cùng một biến animation.
+
+  document.getElementById("animateBtn").addEventListener("click", function () {  //Lấy phần tử <button> có id="animateBtn" và gán sự kiện click
+  const box = document.getElementById("animateBox");
+
+  // Nếu đang chạy animation cũ thì huỷ
+    if (animation) {    
+    animation.cancel();   //Kiểm tra xem animation có tồn tại không, Nếu có, gọi animation.cancel() để dừng nó ngay lập tức, đưa <div> về trạng thái ban đầu.
+  }
+
+  // Tạo animation mới 
+  animation = box.animate([  //animation = box.animate(keyframes, options)
+    {     //frame1
+      left: "0px",
+      opacity: 1,
+      height: "100px",
+      width: "100px"
+    },
+    {      //frame2
+      left: "250px",
+      opacity: 0.5,
+      height: "150px",
+      width: "150px"
+    }
+  ], {
+    duration: 1000, //Animation chạy trong 1 giây.
+    fill: "forwards" //Khi kết thúc, <div> giữ trạng thái cuối (frame 2: left: 250px, v.v.).
+  });
+});
+      //Animation sẽ chuyển mượt mà từ frame 1 sang frame 2 trong 1 giây.
+
+document.getElementById("stopBtn").addEventListener("click", function () { //Lấy <button id="stopBtn"> và gắn sự kiện click
+  if (animation) {
+    animation.cancel(); // Hủy animation hiện tại, làm <div> trở về trạng thái ban đầu (tức là left: 0px, opacity: 1, v.v.).
+  }
+});
+
+    </script>
+</body>
+</html>

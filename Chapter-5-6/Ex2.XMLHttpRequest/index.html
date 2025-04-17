@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Basic - XMLHttpRequest</title>
+</head>
+<body>
+  <h2>AJAX với JavaScript thuần</h2>
+  
+  <input type="text" id="username" placeholder="Nhập tên của bạn" />
+  <button id="sendBtn">Gửi</button>
+
+  <h3>Kết quả từ server:</h3>
+   <pre id="result"></pre> <!-- Thẻ <pre> dùng để hiển thị kết quả phản hồi từ server dưới dạng định dạng JSON -->
+
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", function() {
+  const username = document.getElementById("username").value; // .value giúp lấy giá trị từ ô đó
+
+  // Tạo dữ liệu JSON để gửi
+  const data = {
+    name: username
+  };
+
+  // Tạo request mới
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://jsonplaceholder.typicode.com/posts"); // API giả lập
+
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  // Xử lý khi nhận được phản hồi từ server
+  xhr.onload = function() {  // xhr.onload dùng để xử lý kết quả phản hồi từ server
+    if (xhr.status === 201) { // xhr.status là mã trạng thái HTPP mà server trả về
+      const response = JSON.parse(xhr.responseText); // xhr.responseText chuỗi JSON mà server trả về || JSON.parse JSON->JS
+      document.getElementById("result").textContent = JSON.stringify(response, null, 2);
+    } else {
+      document.getElementById("result").textContent = "Lỗi khi gửi dữ liệu.";
+    }
+  };
+
+  // Gửi dữ liệu
+  xhr.send(JSON.stringify(data));  //JSON.stringify JS-> JSON
+});
+
+// 1	new XMLHttpRequest()	    Tạo đối tượng
+// 2	xhr.open(...)	            Mở kết nối (chọn phương thức + URL)
+// 3	xhr.setRequestHeader(...)	Gửi kèm header (nếu cần)
+// 4	xhr.onload = function() {} 	Xử lý phản hồi
+// 5	xhr.send(...)	           Gửi dữ liệu (phải để sau cùng)
+
+
+//Cú pháp đầy đủ của JSON.stringify là:  JSON.stringify(value, replacer, space);
+// value	 Object cần chuyển thành JSON                   // response
+// replacer  Có thể là null hoặc hàm để lọc bớt key         // null 
+// space	 Số khoảng trắng để format JSON dễ đọc          // 2 làm xuống dòng, thụt lề 2 khoảng trắng
+  </script>
+</body>
+</html>

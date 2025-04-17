@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thực hành try-catch-finally</title>
+</head>
+<body>
+  <script>
+    function chiaThucTe() {
+      let a = Number(prompt("Nhập số a:")); //👉 Dùng prompt() để hỏi người dùng nhập số. 👉 Dùng Number() để chuyển chuỗi thành số.
+      let b = Number(prompt("Nhập số b:")); //📌 Nếu nhập chữ như "abc" → Number("abc") sẽ trả về NaN.
+
+      try {
+        if (isNaN(a) || isNaN(b)) { //true nếu a là NaN hoặc không thể chuyển thành số, || = hoặc
+          throw new Error("Phải nhập số hợp lệ!");
+        }
+
+        if (b === 0) {
+          throw new Error("Không thể chia cho 0!");
+        }
+
+        let result = a / b;
+        alert("Kết quả: " + result);
+      } catch (e) {
+        alert("Lỗi: " + e.message); //error chính là cái lỗi được ném ra từ trong try
+      } finally { //Luôn chạy sau try và catch, kể cả khi có lỗi hay không
+        alert("Cảm ơn bạn đã sử dụng chương trình!");
+      }
+    }
+
+    chiaThucTe(); //👉 Gọi hàm để chạy chương trình.
+  </script>
+
+        <!-- Bên trong e có gì?
+        Là một đối tượng Error
+
+        Có một số thuộc tính quan trọng như:
+
+        e.message: Chuỗi thông báo lỗi (cái bạn truyền khi tạo lỗi mới)
+
+        e.name: Tên loại lỗi (Error, TypeError, SyntaxError...) -->
+</body>
+</html>

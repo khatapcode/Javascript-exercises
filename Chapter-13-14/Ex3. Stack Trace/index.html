@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a() {
+        b();
+        }
+
+        function b() {
+        c();
+        }
+
+        function c() {
+        throw new Error("Lỗi xảy ra tại hàm C");
+        }
+
+        try {
+        a();
+        } catch (error) {
+        console.error("Stack trace:");
+        console.error(error.stack);  // In ra toàn bộ call stack
+        }
+
+    </script>
+
+        <!-- Error: Lỗi xảy ra tại hàm C	Đây là thông báo lỗi mà bạn truyền vào throw new Error(...)
+        at c (<anonymous>:8:9)	Lỗi bắt đầu xảy ra ở hàm c, dòng số 8, cột 9
+        at b (<anonymous>:4:3)	Hàm b gọi hàm c, tại dòng 4, cột 3
+        at a (<anonymous>:1:3)	Hàm a gọi hàm b, tại dòng 1, cột 3
+        at <anonymous>:12:3	Và ở ngoài cùng là đoạn try { a(); } — dòng 12, cột 3 -->
+</body>
+</html>

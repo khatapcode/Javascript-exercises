@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "0123 456 789";
+
+        // Cách 1: replace() thông thường
+        let result1 = str.replace(" ", "-"); //replace chỉ thay khoảng trắng đầu tiên trong chuỗi
+        
+
+        // Cách 2: dùng biểu thức chính quy /g
+        let result2 = str.replace(/ /g, "-"); 
+        ///  /g là biểu thức chính quy:
+        //   / /: Khớp khoảng trắng.
+        //   g: Cờ global, khớp tất cả khoảng trắng.
+
+        
+        console.log(result1);  //"0123-456 789"
+        console.log(result2);  //"0123-456-789"
+    </script>
+</body>
+</html>

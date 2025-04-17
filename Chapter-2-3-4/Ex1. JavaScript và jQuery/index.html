@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Khi dùng nhớ thêm link jQuery vào trong file HTML -->
+
+</head>
+<body>
+    
+    <button id="hideBtn">Hide Box</button>
+    <div id="box" style="width:100px;height:100px;background:red;"></div>
+
+    <script>
+
+        //JavaScript thuần
+        document.getElementById("hideBtn").addEventListener("click", function () {
+        document.getElementById("box").style.display = "none";
+        });
+
+        //jQuery
+        $("#hideBtn").click(function () {
+        $("#box").hide();
+        });
+
+        // 🔹 jQuery làm ngắn gọn hơn như thế nào?
+        // Không cần document.getElementById, chỉ dùng $().
+
+        // Không cần viết .addEventListener, chỉ .click() là đủ.
+
+        // Không cần chỉnh trực tiếp style.display, chỉ .hide() là đủ.
+
+
+        // jQuery không phải ngôn ngữ mới, mà là một thư viện (library) được viết bằng JavaScript.
+
+        // Nó giúp đơn giản hóa code JavaScript như thao tác DOM, sự kiện, AJAX, hiệu ứng...
+
+        // Khi bạn dùng jQuery, thực chất bạn đang dùng JavaScript đã được viết sẵn dưới dạng tiện dụng hơn.
+
+    </script>
+</body>
+</html>

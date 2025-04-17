@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        x = 10;
+        console.log(x); // ❌ Lỗi
+        //Không cho phép khai báo biến mà không dùng let, const hoặc var
+
+
+        NaN = 123; // ❌ Lỗi
+        //Không cho phép gán giá trị cho các biến chỉ đọc hoặc bị đóng băng
+
+        //Không cho phép dùng từ khóa của JavaScript (implements interface let package private protected public static yield)
+        let public = 1; // ❌ Lỗi
+
+        function foo(a, a) {} // ❌ Lỗi
+        //Không cho phép khai báo 2 biến trùng tên trong cùng 1 phạm vi
+
+       
+
+    </script>
+</body>
+</html>

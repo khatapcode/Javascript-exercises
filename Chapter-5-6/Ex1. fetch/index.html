@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="userForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="email" id="email" placeholder="Email">
+        <button type="submit">Submit</button>
+      </form>
+
+
+      <script>
+        // Lấy phần tử form
+        const userForm = document.getElementById("userForm");
+
+        // Gắn sự kiện submit cho form
+        userForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn hành vi mặc định của form (tải lại trang)
+
+        // Lấy giá trị từ các input
+        const data = {
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value
+        };
+
+        // Gửi yêu cầu POST bằng Fetch API
+        fetch("https://jsonplaceholder.typicode.com/posts", { //được sử dụng để cung cấp URL của tài nguyên mà bạn muốn lấy (hoặc thu được).
+            method: "POST", // POST (gửi dữ liệu mới lên server).
+            headers: {
+            "Content-Type": "application/json" // Khai báo loại dữ liệu gửi đi là JSON
+            },
+            body: JSON.stringify(data) // Chuyển object thành chuỗi JSON
+        })
+            .then(response => {  // xử lý kết quả trả về từ server.
+            if (!response.ok) {  
+                throw new Error("Network response was not ok");  //Tạo ra lỗi mới và ném xuống catch để giải quyết
+            }
+            return response.json(); // Từ chuỗi JSON thành object JavaScript.
+            })
+            .then(data => {  //data là kết quả của response.json() sau khi parse JSON.
+            console.log("Success!", data); 
+            })
+            .catch(error => {
+            console.error("Error:", error); // Xử lý lỗi
+            });
+        });
+      </script>
+</body>
+</html>

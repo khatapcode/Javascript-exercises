@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function change(x) {
+        x = 999;
+        }
+
+        let a = 100;
+        change(a);
+        console.log(a); // 👉 100 (không đổi)
+
+
+
+        function update(user) {
+        user.name = "Đã đổi tên";
+        }
+
+        const person = { name: "Kha" };
+        update(person);
+        console.log(person.name); // 👉 "Đã đổi tên" (bị đổi!)
+
+
+//         Trường hợp	Kết quả	Ghi nhớ
+// Truyền kiểu nguyên thủy	Không bị thay đổi	Vì là bản sao
+// Truyền object/array	Có thể bị thay đổi ngoài hàm	Vì là cùng tham chiếu → cần tạo bản sao nếu muốn bảo toàn dữ liệu gốc
+
+    </script>
+</body>
+</html>
